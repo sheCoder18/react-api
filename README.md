@@ -1,3 +1,15 @@
+
+I used JSONPlaceholder API for this project. 
+My task was to dispaly fetched data in table format.
+I have included "login page" and provided basic validation for username, email and password.
+I used axios to fetch data. 
+
+Finally I have uploaded screenshots of my application.
+
+
+
+
+
 ![Components](https://github.com/user-attachments/assets/10bfc59a-d02e-4a27-bf53-57bdfe08e751)
 ![userData](https://github.com/user-attachments/assets/dcbe2166-fd09-446e-ad2e-f6b06fa79031)
 ![form validation](https://github.com/user-attachments/assets/fdd7f751-10b9-4574-9e62-1c2ada01fa21)
