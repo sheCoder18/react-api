@@ -13,8 +13,14 @@ const Dashboard = () => {
     //fetching data from API using axios
     const fetchUsers = async (url) => {
         try {
+
+            // This line sends a GET request to the provided URL using the axios library. 
+            // The await keyword pauses the function execution until the request is complete and the response is returned.
             const res = await axios.get(url);
+
+            //extracting data from response came
             const data = res.data;
+
             if (data.length > 0) {
                 setUsers(data);
             }
@@ -24,6 +30,8 @@ const Dashboard = () => {
         }
     };
 
+    // Inside the useEffect, the fetchUsers function is called with the API URL
+    // The empty dependency array [] means that this effect will run only once, after the initial render.
     useEffect(() => {
         fetchUsers(API);
     }, []);
@@ -40,6 +48,7 @@ const Dashboard = () => {
                     </tr>
                 </thead>
                 <tbody>
+                    {/* passing users as props */}
                     <UserDisplay users={users} />
                 </tbody>
             </table>

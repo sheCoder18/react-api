@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
+
+// hooks are used with functional components only not with ES6 components
+
 function Login() {
   const initialValues = { username: "", email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
@@ -10,26 +13,36 @@ function Login() {
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
 
+  //as someone start entering details
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
 
+  //someone click submit button
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
   };
 
+
+  // [formErrors]: This dependency array means that the effect will run whenever the formErrors state changes.
+
   useEffect(() => {
+
+    // Check if there are no form errors and the form has been submitted
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       // Simulate a successful login
       setSuccessMessage("Login successful! Redirecting to dashboard...");
+
+      // Redirect to the dashboard after a 2-second delay
       setTimeout(() => {
         navigate("/dashboard");
       }, 2000);
     }
   }, [formErrors]);
+
 
   const validate = (values) => {
     const errors = {};
